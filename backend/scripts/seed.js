@@ -274,96 +274,89 @@ const seedData = async () => {
       });
 
       // Video Lectures
-      if (chap.name === 'Glimpses of India') {
-        const vids = [
-          { title: 'Part 1', id: '7_h2H1e4Z88' },
-          { title: 'Part 2', id: '8_h2H1e4Z88' },
-          { title: 'Part 3', id: '9_h2H1e4Z88' },
-          { title: 'Kriti Di Lecture', id: '0_h2H1e4Z88' }
-        ];
-        for (const v of vids) {
-          await Resource.create({
-            title: v.title,
-            description: `Lecture video for Glimpses of India: ${v.title}.`,
-            videoUrl: `https://youtu.be/${v.id}`,
-            youtubeVideoId: v.id,
-            thumbnail: `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
-            duration: '15:00',
-            subjectId: english10._id,
-            chapterId: chap._id,
-            category: 'lectures',
-            class: '10',
-            resourceType: 'video',
-            uploadedBy: adminUser._id,
-          });
-        }
-      } else if (chap.name === 'The Trees') {
-        const vids = [
-          { title: 'Main Lecture', id: 'dQdI1fWc1rM' },
-          { title: 'Kriti Di Lecture', id: 'eQdI1fWc1rM' }
-        ];
-        for (const v of vids) {
-          await Resource.create({
-            title: v.title,
-            description: `Poem explanation for The Trees: ${v.title}.`,
-            videoUrl: `https://youtu.be/${v.id}`,
-            youtubeVideoId: v.id,
-            thumbnail: `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
-            duration: '10:00',
-            subjectId: english10._id,
-            chapterId: chap._id,
-            category: 'lectures',
-            class: '10',
-            resourceType: 'video',
-            uploadedBy: adminUser._id,
-          });
-        }
-      } else if (chap.name === 'The Thief\'s Story') {
-        const vids = [
-          { title: 'Main Lecture', id: 'nQdI1fWc1rN' },
-          { title: 'Kriti Di Lecture 1', id: 'oQdI1fWc1rN' },
-          { title: 'Kriti Di Lecture 2', id: 'pQdI1fWc1rN' }
-        ];
-        for (const v of vids) {
-          await Resource.create({
-            title: v.title,
-            description: `Chapter lecture for The Thief's Story: ${v.title}.`,
-            videoUrl: `https://youtu.be/${v.id}`,
-            youtubeVideoId: v.id,
-            thumbnail: `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
-            duration: '12:00',
-            subjectId: english10._id,
-            chapterId: chap._id,
-            category: 'lectures',
-            class: '10',
-            resourceType: 'video',
-            uploadedBy: adminUser._id,
-          });
-        }
+      let vids = [];
+      const cname = chap.name;
+
+      // First Flight
+      if (cname === 'A Letter to God') {
+        vids = [{ title: 'Main Lecture', id: '2w6r4mWykIE' }, { title: 'Kriti Di Lecture', id: '37fvYZ8pb10' }];
+      } else if (cname === 'Nelson Mandela: Long Walk to Freedom') {
+        vids = [{ title: 'Main Lecture', id: 'UXpLYES-n3o' }, { title: 'Kriti Di Lecture', id: 'Sc-iGYFqH5w' }];
+      } else if (cname === 'Stories About Flying') {
+        vids = [{ title: 'Main Lecture', id: 'DCqd00umZ0g' }, { title: 'Kriti Di Lecture', id: 'l9l4RdikVGY' }];
+      } else if (cname === 'From the Diary of Anne Frank') {
+        vids = [{ title: 'Main Lecture', id: 'fc7QwZ_JMyI' }, { title: 'Kriti Di Lecture', id: 'JM2ekHhvIWs' }];
+      } else if (cname === 'Glimpses of India') {
+        vids = [{ title: 'Part 1', id: 'rKeRU4s8e_8' }, { title: 'Part 2', id: 'LWWpoM_U9iw' }, { title: 'Part 3', id: '91mmR37Ma3M' }, { title: 'Kriti Di Lecture', id: '_EIF5nPScc0' }];
+      } else if (cname === 'Mijbil the Otter') {
+        vids = [{ title: 'Main Lecture', id: 'jyBbUsk-8Ic' }, { title: 'Kriti Di Lecture', id: 'BYA0MDdmudw' }];
+      } else if (cname === 'Madam Rides the Bus') {
+        vids = [{ title: 'Main Lecture', id: 'CXKVT_8z_IA' }, { title: 'Kriti Di Lecture', id: 'jJGJICYVo6Q' }];
+      } else if (cname === 'The Sermon at Benares') {
+        vids = [{ title: 'Main Lecture', id: 'SfzWqWwrwyU' }, { title: 'Kriti Di Lecture', id: '_fNJz_RgzRc' }];
+      } else if (cname === 'The Proposal') {
+        vids = [{ title: 'Main Lecture', id: '3_B9T9Y5c9c' }, { title: 'Kriti Di Lecture', id: 'owj-G3ACjWw' }];
+      }
+      // Poems
+      else if (cname === 'Dust of Snow') {
+        vids = [{ title: 'Main Lecture', id: 'CpZRRMwC8n8' }, { title: 'Kriti Di Lecture', id: 'jboE6me8n4Y' }];
+      } else if (cname === 'Fire and Ice') {
+        vids = [{ title: 'Main Lecture', id: 'h1d-P4QAd1c' }];
+      } else if (cname === 'A Tiger in the Zoo') {
+        vids = [{ title: 'Main Lecture', id: '1uiadsWxsXo' }];
+      } else if (cname === 'How to Tell Wild Animals') {
+        vids = [{ title: 'Main Lecture', id: '8YTgFlQ6hKE' }, { title: 'Kriti Di Lecture', id: '0bibkaAFwQU' }];
+      } else if (cname === 'The Ball Poem') {
+        vids = [{ title: 'Main Lecture', id: '0a9koAPHvoM' }];
+      } else if (cname === 'Amanda!') {
+        vids = [{ title: 'Main Lecture', id: 'IE32QU_Lrz8' }];
+      } else if (cname === 'The Trees') {
+        vids = [{ title: 'Main Lecture', id: 'VuVEqovwCIA' }, { title: 'Kriti Di Lecture', id: 'eLFFAMfM8pM' }];
+      } else if (cname === 'Fog') {
+        vids = [{ title: 'Main Lecture', id: 'rM_aPk5G470' }];
+      } else if (cname === 'The Tale of Custard the Dragon') {
+        vids = [{ title: 'Main Lecture', id: 'h_QwDoVkFtg' }, { title: 'Kriti Di Lecture', id: 'Ei3vfGhX9f4' }];
+      } else if (cname === 'For Anne Gregory') {
+        vids = [{ title: 'Main Lecture', id: 'nFU0YmmM4Lk' }];
+      }
+      // Footprints Without Feet
+      else if (cname === 'A Triumph of Surgery') {
+        vids = [{ title: 'Main Lecture', id: 'w9FpgW5I1Io' }, { title: 'Kriti Di Lecture', id: 'lP6rg3UmNSY' }];
+      } else if (cname === 'The Thief\'s Story') {
+        vids = [{ title: 'Main Lecture', id: '4sZl3KPBD_A' }, { title: 'Part 2 Lecture', id: 'AdrjDRHcz5w' }, { title: 'Kriti Di Lecture', id: '8T7ER7LSVWU' }];
+      } else if (cname === 'The Midnight Visitor') {
+        vids = [{ title: 'Kriti Di Lecture', id: 'NtND5TsNvQ0' }];
+      } else if (cname === 'A Question of Trust') {
+        vids = [{ title: 'Main Lecture', id: 'g68_SHwGC-o' }, { title: 'Kriti Di Lecture', id: '2MfevcLfj9A' }];
+      } else if (cname === 'Footprints Without Feet') {
+        vids = [{ title: 'Main Lecture', id: 'oszdnvwDfTQ' }, { title: 'Kriti Di Lecture', id: 'gr4WQLsqlqw' }];
+      } else if (cname === 'The Making of a Scientist') {
+        vids = [{ title: 'Main Lecture', id: '64PaWs5BZ8Q' }, { title: 'Kriti Di Lecture', id: 'XcrFbkodB3E' }];
+      } else if (cname === 'The Necklace') {
+        vids = [{ title: 'Main Lecture', id: 'TtZMjKuuF4Q' }, { title: 'Kriti Di Lecture', id: 'vR3mtDk3SDw' }];
+      } else if (cname === 'Bholi') {
+        vids = [{ title: 'Main Lecture', id: 'V3GnocR2-0o' }, { title: 'Kriti Di Lecture', id: '20Bwch3ar2Q' }];
+      } else if (cname === 'The Book That Saved the Earth') {
+        vids = [{ title: 'Main Lecture', id: 'Si8uiDGqSrw' }, { title: 'Kriti Di Lecture', id: 'u8OBAg73SJ0' }];
       } else {
-        // All other chapters get a Main Lecture and a Kriti Di Lecture
-        const id1 = `vid${chap._id.toString().slice(-7)}a`;
-        const id2 = `vid${chap._id.toString().slice(-7)}b`;
-        const vids = [
-          { title: 'Main Lecture', id: id1 },
-          { title: 'Kriti Di Lecture', id: id2 }
-        ];
-        for (const v of vids) {
-          await Resource.create({
-            title: v.title,
-            description: `Explanation of ${chap.name} - ${v.title}.`,
-            videoUrl: `https://youtu.be/${v.id}`,
-            youtubeVideoId: v.id,
-            thumbnail: `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
-            duration: '14:20',
-            subjectId: english10._id,
-            chapterId: chap._id,
-            category: 'lectures',
-            class: '10',
-            resourceType: 'video',
-            uploadedBy: adminUser._id,
-          });
-        }
+        vids = [{ title: 'Main Lecture', id: `vid${chap._id.toString().slice(-7)}a` }];
+      }
+
+      for (const v of vids) {
+        await Resource.create({
+          title: v.title,
+          description: `Lecture video for ${chap.name}: ${v.title}.`,
+          videoUrl: `https://youtu.be/${v.id}`,
+          youtubeVideoId: v.id,
+          thumbnail: `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,
+          duration: '15:00',
+          subjectId: english10._id,
+          chapterId: chap._id,
+          category: 'lectures',
+          class: '10',
+          resourceType: 'video',
+          uploadedBy: adminUser._id,
+        });
       }
     }
 
@@ -877,7 +870,6 @@ const seedData = async () => {
     // ----------------------------------------------------
     // SEED NOTES
     // ----------------------------------------------------
-    const dummyPdf = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
 
     await Resource.create([
       {
